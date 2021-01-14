@@ -15,17 +15,6 @@ class ToDo extends React.Component {
     this.handleNewList = this.handleNewList.bind(this);
   }
 
-  init() {
-    var username = JSON.parse(sessionStorage.getItem("session")).user;
-    USER = Object.setPrototypeOf(JSON.parse(localStorage.getItem(username)), User.prototype);
-    for (var i = 0; i < USER.lists.length; ++i) {
-        Object.setPrototypeOf(USER.lists[i], List.prototype);
-        for (var j = 0; j < USER.lists[i].tasks.length; ++j) {
-            Object.setPrototypeOf(USER.lists[i].tasks[j], ListElement.prototype);
-        }
-    }
-    USER.appendDOM();
-}
   renderInvoke() {
     this.setState({ switch: !this.state.switch });
   }
@@ -65,6 +54,11 @@ class ToDo extends React.Component {
     }
     this.renderInvoke();
   }
+
+  init() {
+    var username = JSON.parse(sessionStorage.getItem("session")).user;
+    return JSON.parse(localStorage.getItem(username));
+}
 
   render() {
     this.saveUser();
