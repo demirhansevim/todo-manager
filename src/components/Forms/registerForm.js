@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import User from '../user.js';
 
 export default class RegisterForm extends React.Component {
     constructor(props) {

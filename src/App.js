@@ -4,6 +4,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import MainPage from './components/mainPage.js'
 import ToDo from './components/ToDo'
+import Session from './components/session.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,13 @@ class App extends React.Component {
       page: page
     });
   }
+  
+  initSession() {
+    if (sessionStorage.getItem("session") == null) {
+        var session = new Session();
+        sessionStorage.setItem("session", JSON.stringify(session));
+    }
+}
 
   render() {
     initSession();

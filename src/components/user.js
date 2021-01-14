@@ -1,4 +1,4 @@
-export class User {
+class User {
     /**
      * Creates a new instance of user.
      * @param {string} username 
