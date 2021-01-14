@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Register from './components/Register'
+import Login from './components/Login'
+import MainPage from './components/mainPage.js'
+import ToDo from './components/ToDo'
+import { initSession, removeList, addNewTask, addTaskEnter } from './scripts/utils.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 0
+    };
+    this.handler = this.handler.bind(this);
+  }
+
+  handler(page) {
+    this.setState({
+      page: page
+    });
+  }
+
+  render() {
+    initSession();
+    if (this.state.page == 0)
+      return <MainPage handler={this.handler} page={0} />;
+    else if (this.state.page == 1)
+      return <Register handler={this.handler} />;
+    else if (this.state.page == 2)
+      return <Login handler={this.handler} />;
+    else {
+      return <ToDo handler={this.handler} />;
+    }
+  }
 }
 
 export default App;
