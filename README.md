@@ -5,13 +5,13 @@ This is a project for CS391: Web Application Development course of Özyegin Univ
 
 ## Work Allocation
 
-@biarmic -> Back-end development
+@biarmic (Eren Doğan) -> Convert back-end to components
 
-@politesiv -> Homepage and Todo page development
+@politesiv (Güven Can Yolal) -> Convert Homepage and Todo page to components
 
-@demirhansevim -> Register and Login page development
+@demirhansevim (Demirhan Sevim) -> Convert Register and Login page to components
 
-@iserdardursun -> Responsive UI development
+@iserdardursun (İlyas Serdar Dursun) -> Apply Responsive UI using Bootstrap
 
 ## Use Cases
 * Register
@@ -24,7 +24,7 @@ This is a project for CS391: Web Application Development course of Özyegin Univ
 
 ## Instructions
 * Download the repository
-* Open index.html file with your browser (Chrome is recommended)
+* Run the application using npm
 * Click on register button to go to register.html
 * Register to TodoManager
 * Now you can add lists and tasks

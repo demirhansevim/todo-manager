@@ -12,6 +12,7 @@ class List extends React.Component {
         };
         this.handleRemoveTask = this.handleRemoveTask.bind(this);
         this.handleNewTask = this.handleNewTask.bind(this);
+        this.handleRemoveList = this.handleRemoveList.bind(this);
     }
 
     handleNewTask() {
@@ -38,6 +39,7 @@ class List extends React.Component {
                 user.lists[i].tasks.push({ id: id, name: this.state.taskName, checked: false });
             }
         }
+        this.props.renderInvokeHandler();
     }
 
     handleRemoveTask(id) {
@@ -53,6 +55,11 @@ class List extends React.Component {
                 break;
             }
         }
+        this.props.renderInvokeHandler();
+    }
+
+    handleRemoveList() {
+        this.props.removeListHandler(this.state.id);
     }
 
     render() {
@@ -61,7 +68,7 @@ class List extends React.Component {
         for (var i = 0; i < user.lists.length; ++i) {
             if (user.lists[i].id == this.state.id) {
                 for (var j = 0; j < user.lists[i].tasks.length; ++j) {
-                    elements.push(<ListElement id={user.lists[i].tasks[j].id} name={user.lists[i].tasks[j].name} checked={user.lists[i].tasks[j].checked} removeTaskHandler={this.handleRemoveTask} />);
+                    elements.push(<ListElement id={user.lists[i].tasks[j].id} name={user.lists[i].tasks[j].name} checked={user.lists[i].tasks[j].checked} removeTaskHandler={this.handleRemoveTask} renderInvokeHandler={this.renderInvoke} />);
                 }
                 break;
             }
@@ -71,7 +78,7 @@ class List extends React.Component {
                 <div className="listInside">
                     <button className="button removeButton" onClick={this.handleRemoveList}>Remove List</button>
                     <h1 className="listName">{this.state.name}</h1>
-                    <input className="textInput inputMobile" type="text" placeholder="New Task" onChange={e => this.setState({ taskName: e.target.value })}></input>
+                    <input className="textInput inputMobile" type="text" id="newTaskName-${this.id}" placeholder="New Task" onChange={e => this.setState({ taskName: e.target.value })}></input>
                     <button className="button addButton" onClick={this.handleNewTask}>Add New Task</button>
                 </div><ul> {elements} </ul></div>
         );
