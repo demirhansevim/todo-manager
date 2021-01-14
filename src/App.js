@@ -4,7 +4,6 @@ import Register from './components/Register'
 import Login from './components/Login'
 import MainPage from './components/mainPage.js'
 import ToDo from './components/ToDo'
-import { initSession, removeList, addNewTask, addTaskEnter } from './scripts/utils.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class App extends React.Component {
   render() {
     initSession();
     if (this.state.page == 0)
-      return <MainPage handler={this.handler} page={0} />;
+      return <MainPage handler={this.handler} />;
     else if (this.state.page == 1)
       return <Register handler={this.handler} />;
     else if (this.state.page == 2)

@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { register, login } from '../../scripts/utils.js'
-
 
 export default class RegisterForm extends React.Component {
     constructor(props) {
@@ -19,6 +17,25 @@ export default class RegisterForm extends React.Component {
         this.passwordValidation = this.passwordValidation.bind(this);
     }
 	
+	register(username, password, email, birthDate, gender) {
+    if (localStorage.getItem(username) != null)
+        return false;
+    var user = new User(username, password, email, birthDate, gender);
+    updateUser(user);
+    return true;
+}
+	login(username, password) {
+    var user = localStorage.getItem(username);
+    if (user == null)
+        return null;
+    user = JSON.parse(user);
+    if (user.password != password)
+        return false;
+    var session = JSON.parse(sessionStorage.getItem("session"));
+    session.user = username;
+    updateSession(session);
+    return true;
+}
 	 inputRegister() {
       var username = document.getElementById("registerUsername").value
       var password = document.getElementById("registerPassword").value
@@ -30,10 +47,10 @@ export default class RegisterForm extends React.Component {
         if (gender[i].checked)
           gender = gender[i].value
       }
-      var registerBool = register(username, password, email, birthday, gender)
+      var registerBool = this.register(username, password, email, birthday, gender)
       if (password == checkpassword) {
         if (registerBool) {	
-          login(username, password)     
+          this.login(username, password)     
         }
         else
           alert("That user already exists.")

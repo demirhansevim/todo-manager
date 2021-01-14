@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { login } from '../../scripts/utils.js'
 
 
 export default class LoginForm extends React.Component {
@@ -13,10 +12,23 @@ export default class LoginForm extends React.Component {
         this.inputLogin = this.inputLogin.bind(this);
   
     }	
+	
+	login(username, password) {
+    var user = localStorage.getItem(username);
+    if (user == null)
+        return null;
+    user = JSON.parse(user);
+    if (user.password != password)
+        return false;
+    var session = JSON.parse(sessionStorage.getItem("session"));
+    session.user = username;
+    updateSession(session);
+    return true;
+}
     inputLogin() {
         var username = document.getElementById("loginUsername").value
         var password = document.getElementById("loginPassword").value
-        var loginBool = login(username, password)
+        var loginBool = this.login(username, password)
         if (loginBool == null || loginBool == false) {
           if (loginBool == null)
             alert("There is no user with that name.")

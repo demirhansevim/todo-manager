@@ -1,12 +1,11 @@
 import React from 'react';
 import List from './List.js';
-import { init } from "../scripts/utils.js";
 
 class ToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: init(),
+      user: this.init(),
       listName: "",
       switch: true
     };
@@ -16,6 +15,17 @@ class ToDo extends React.Component {
     this.handleNewList = this.handleNewList.bind(this);
   }
 
+  init() {
+    var username = JSON.parse(sessionStorage.getItem("session")).user;
+    USER = Object.setPrototypeOf(JSON.parse(localStorage.getItem(username)), User.prototype);
+    for (var i = 0; i < USER.lists.length; ++i) {
+        Object.setPrototypeOf(USER.lists[i], List.prototype);
+        for (var j = 0; j < USER.lists[i].tasks.length; ++j) {
+            Object.setPrototypeOf(USER.lists[i].tasks[j], ListElement.prototype);
+        }
+    }
+    USER.appendDOM();
+}
   renderInvoke() {
     this.setState({ switch: !this.state.switch });
   }
