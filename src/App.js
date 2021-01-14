@@ -29,7 +29,7 @@ class App extends React.Component {
 }
 
   render() {
-    initSession();
+    this.initSession();
     if (this.state.page == 0)
       return <MainPage handler={this.handler} />;
     else if (this.state.page == 1)
