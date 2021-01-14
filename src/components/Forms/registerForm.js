@@ -17,11 +17,17 @@ export default class RegisterForm extends React.Component {
         this.passwordValidation = this.passwordValidation.bind(this);
     }
 	
+	 updateUser(user) {
+    localStorage.setItem(user.username, JSON.stringify(user));
+}
+	updateSession(session) {
+    sessionStorage.setItem("session", JSON.stringify(session));
+}
 	register(username, password, email, birthDate, gender) {
     if (localStorage.getItem(username) != null)
         return false;
     var user = new User(username, password, email, birthDate, gender);
-    updateUser(user);
+    this.updateUser(user);
     return true;
 }
 	login(username, password) {
@@ -33,7 +39,7 @@ export default class RegisterForm extends React.Component {
         return false;
     var session = JSON.parse(sessionStorage.getItem("session"));
     session.user = username;
-    updateSession(session);
+    this.updateSession(session);
     return true;
 }
 	 inputRegister() {

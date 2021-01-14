@@ -12,7 +12,9 @@ export default class LoginForm extends React.Component {
         this.inputLogin = this.inputLogin.bind(this);
   
     }	
-	
+	updateSession(session) {
+    sessionStorage.setItem("session", JSON.stringify(session));
+}
 	login(username, password) {
     var user = localStorage.getItem(username);
     if (user == null)
@@ -22,7 +24,7 @@ export default class LoginForm extends React.Component {
         return false;
     var session = JSON.parse(sessionStorage.getItem("session"));
     session.user = username;
-    updateSession(session);
+    this.updateSession(session);
     return true;
 }
     inputLogin() {
