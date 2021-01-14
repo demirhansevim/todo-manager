@@ -1,6 +1,8 @@
 import React from 'react';
 import RegisterForm from './Forms/registerForm.js'
 
+import img from "../clipboard.png";
+
 class Register extends React.Component  {
  constructor(props){
            super(props);
@@ -10,7 +12,7 @@ class Register extends React.Component  {
 		<div className="formContainer">
     <div className="formContainerInside">
       <div className="formImage">
-        <img src="assets/clipboard.png" />
+      <img src={img}/>
       </div>
       <RegisterForm handler = {this.props.handler}/>
     </div>

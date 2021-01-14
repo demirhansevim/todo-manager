@@ -10,10 +10,13 @@ handleClick(item) {
 }
   render() {
     return (
-        <div className="indexButtonContainer">
-        <input type="button" className="indexButton" value="Login" onClick={this.handleClick.bind(this,2)}/>
-        <input type="button" className="indexButton" value="Register" onClick={this.handleClick.bind(this,1)}/>
+        <div className="row indexButtonContainer justify-content-center">
+            <div className="col-md-6 text-center">
+                <a type="button" className="indexButton" value="Login" onClick={this.handleClick.bind(this,2)}><span>Login</span></a>&nbsp;
+                <a type="button" className="indexButton" value="Register" onClick={this.handleClick.bind(this,1)}><span>Register</span></a>
+            </div>
         </div>
+
     );
   }
  

@@ -1,5 +1,7 @@
 import React from 'react';
+import './bootstrap.css';
 import './App.css';
+import './todoStyle.css';
 import Register from './components/Register'
 import Login from './components/Login'
 import MainPage from './components/mainPage.js'

@@ -1,38 +1,373 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Itim&family=Yusei+Magic&display=swap');
+
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #131417;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #131417;
+  font-family: "Itim";
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width: 700px) {
+  .logoContainer {
+    margin: auto;
+    width: 70%;
+    padding: 1%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+@media screen and (max-width: 700px) {
+  .logoContainer {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .logo {
+    margin-left: 30%;
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .logoText {
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logoText {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-image: -webkit-linear-gradient(left, #1c1c1c, #6e6d6d, #1c1c1c);
+  background-image: -moz-linear-gradient(left, #1c1c1c, #6e6d6d, #1c1c1c);
+  background-image: -ms-linear-gradient(left, #1c1c1c, #6e6d6d, #1c1c1c);
+  background-image: -o-linear-gradient(left, #1c1c1c, #6e6d6d, #1c1c1c);
+}
+
+.footerLeft {
+  float: left;
+  margin-top: 0.5vh;
+  margin-left: 4vw;
+  width: 70%;
+}
+
+@media screen and (max-width: 700px) {
+  .footerLeft {
+    float: left;
+    margin-top: 2vw;
+    margin-left: 4vw;
+    width: 50%;
+  }
+}
+
+.footer {
+  position: relative;
+  bottom: 0px;
+  background-color: #0d0e0f;
   color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-width: 700px) {
+  h2.footer {
+    font-size: 200px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footerRight {
+  margin-top: 4vh;
+  margin-right: 4vw;
+  width: 6vw;
+  text-align: center;
+  float: right;
+}
+
+@media screen and (max-width: 700px) {
+  .footerRight {
+    margin-top: 15vw;
+    margin-right: 10vw;
+    width: 10%;
+    text-align: left;
+    float: right;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.indexButtonContainer {
+  margin-top: 25vh;
+}
+
+@media screen and (max-width: 700px) {
+  .indexButtonContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-top: 25vh;
+
   }
+}
+
+
+.indexButton span {
+  display: inline-block;
+  font-size: 2em;
+  padding: .625em 1em;
+  background: #0C6961;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-shadow: 0 -1px 1px rgba(7, 51, 34, 0.8);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+@media (min-width:700px) and (max-width:1200px){
+  .indexButton span {
+    display: inline-block;
+    font-size: 4vw;
+    padding: .625em 1em;
+    background: #0C6961;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-shadow: 0 -1px 1px rgba(7, 51, 34, 0.8);
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-transition: -moz-transform 0.2s ease-in-out;
+    -o-transition: -o-transform 0.2s ease-in-out;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+  }
+}​
+
+.indexButton {
+  display: inline-block;
+  color: #eff6ec;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: 0 8px 0 #06332f, 0 10px 15px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 8px 0 #06332f, 0 10px 15px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 0 #06332f, 0 10px 15px rgba(0, 0, 0, 0.35);
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  font-size: 1vw;
+}
+
+.indexButton:active {
+
+  box-shadow: 0 8px 0 #06332f, 0 7px 10px rgba(0, 0, 0, 0.25);
+}
+
+.indexButton:active span {
+  -moz-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+#removeToDo {
+  background-color: red;
+  color: white;
+  top: 0;
+  right: 0;
+}
+
+.tasks {
+  text-align: center;
+  margin-left: center;
+  margin-right: center;
+  margin-top: 40vh;
+  margin-bottom: 40vh;
+}
+
+.addTask {
+  background-color: green;
+  color: white;
+  top: 10px;
+  right: 10px;
+}
+
+#removeTask {
+  background-color: red;
+  color: white;
+  top: 10px;
+  right: 10px;
+}
+.span-text-color{
+  color:red;
+}
+
+.formContainer {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+
+.formContainer .formContainerInside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.formContainer .formContainerInside .formImage {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #ff0;
+  transition: 0.5s;
+}
+
+.formContainer .formContainerInside .formImage img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formContainer .formContainerInside .formBox {
+  position: relative;
+  width: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
+}
+
+.formContainer .formContainerInside .formBox form h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.formContainer .formContainerInside .formBox form input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 8px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.formContainer .formContainerInside .formBox form input[type='submit'] {
+  max-width: 100px;
+  background: #0B5F58;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.formContainer .formContainerInside .formBox {
+  left: 0%;
+}
+
+.formContainer.active .formContainerInside .formBox {
+  left: 100%;
+}
+
+.formContainer .formContainerInside .formImage {
+  left: 0%;
+}
+
+.formContainer.active .formContainerInside .formImage {
+  left: -100%;
+}
+
+@media (max-width: 991px) {
+  .formContainer {
+    max-width: 90%;
+    margin: 5%;
+  }
+  .formContainer .formImage {
+    display: none;
+  }
+  .formContainer .formContainerInside .formBox {
+    width: 100%;
+  }
+}
+
+.textInput {
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  padding: 10px;
+  display: block;
+}
+
+.genderText {
+  margin-left: 5px;
+  font: 600 14px Arial
 }

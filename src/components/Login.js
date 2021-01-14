@@ -1,6 +1,8 @@
 import React from 'react';
 import LoginForm from './Forms/loginForm.js'
 
+import img from "../clipboard.png";
+
 class Login extends React.Component  {
  constructor(props){
            super(props);
@@ -9,7 +11,7 @@ class Login extends React.Component  {
         return (
             <div className="formContainer">
             <div className="formContainerInside">
-              <div className="formImage"><img src="assets\clipboard.png" /></div>
+              <div className="formImage"><img src={img}/></div>
               <LoginForm handler = {this.props.handler}/>
             </div>
           </div>

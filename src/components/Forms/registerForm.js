@@ -83,25 +83,57 @@ export default class RegisterForm extends React.Component {
 		
     render() {	   
 	return(   
-	<div className="formBox">
-	<form onSubmit={this.handleClick.bind(this)}>
+      <div className="formBox">
+      	<form onSubmit={this.handleClick.bind(this)}>
           <h2>Register</h2>
-          <input type="text" id="registerUsername" placeholder="Enter Username" required />
-          <input type="email" id="registerMail" placeholder="Enter E-mail" required />
-          <input value={this.state.password} onChange={e => this.setState({ password: e.target.value })} type="password" id="registerPassword" placeholder="Enter Password" required />
-          <input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={this.passwordValidation()} required />
-          <span style={{color: "red"}}>{this.state.check}</span>
 
-          <input type="date" id="registerBirthday" placeholder="Enter Birthday" required />
 
-          <input type="radio" id="genderMale" name="registerGender" value="Male" required/>
-          <label className="genderText" htmlFor="genderMale">Male</label><br/>
-          <input type="radio" id="genderFemale" name="registerGender" value="Female"/>
-          <label className="genderText" htmlFor="genderFemale">Female</label><br/>
-		  
-		  <input type="submit" value="Submit" id="registerButton"/>
 
-		   <p>If you already have an account you can login here</p>
+          <div className="panel-group">
+            <div className="panel panel-default">
+              <div className="panel-body">
+                <div className="row">
+                    <input type="text" id="registerUsername" placeholder="Enter Username" required />
+                </div>
+                <div className="row">
+                  <input type="email" id="registerMail" placeholder="Enter E-mail" required />
+                </div>
+                <div className="row">
+                  <input value={this.state.password} onChange={e => this.setState({ password: e.target.value })} type="password" id="registerPassword" placeholder="Enter Password" required />
+                </div>
+                <div className="row">
+                  <input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={this.passwordValidation()} required />
+                </div>
+                <div className="row">
+                  <span class="span-text-color">{this.state.check}</span>
+                </div>
+                <div className="row">
+                  <input type="date" id="registerBirthday" placeholder="Enter Birthday" required />
+                </div><br/>
+                <div className="row">
+                  <div className="col-md-3">
+                    <label className="genderText" htmlFor="genderMale">Male <input type="radio" id="genderMale" name="registerGender" value="Male" required/></label><br/>
+                  </div>
+                  <div className="col-md-3">
+                    <label className="genderText" htmlFor="genderFemale">Female <input type="radio" id="genderFemale" name="registerGender" value="Female"/></label><br/>
+                  </div>
+                </div>
+
+                <div className="row">
+                  
+                </div>
+                <div className="row">
+                  
+                </div>
+                <div className="row">
+                 <input type="submit" value="Submit" id="registerButton"/>
+                </div>
+                <div className="row">
+                  <p>If you already have an account you can login here</p>
+                </div>
+              </div>
+            </div>
+          </div>
 		   </form>
       </div>	  
 	      

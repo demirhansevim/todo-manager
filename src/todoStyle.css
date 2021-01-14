@@ -1,0 +1,249 @@
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.list {
+    border-radius: 4px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 20px 36px;
+    display: inline-block;
+    margin: 1.16%;
+    vertical-align: top;
+    background: #e6e6e6;
+}
+
+.listInside {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.list {
+    list-style: none;
+    margin-top: 24px;
+}
+
+.listElement {
+    padding-bottom: 20px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.listLabel {
+    max-width: 150px;
+    display: inline-block;
+    padding-top: 1.3vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-transition: color .5s;
+    transition: color .5s;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: #000000
+}
+
+@media screen and (max-width: 1000px) {
+    .listLabel {
+        font-size: 15px;
+    }
+}
+
+.listName {
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.listCheckbox {
+    position: relative;
+    margin-top: 2vw;
+}
+
+.listCheckbox::after {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    border: 1px solid #888888;
+    border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    -webkit-transition: border .6s, -webkit-transform .6s;
+    transition: border .6s, -webkit-transform .6s;
+    transition: transform .6s, border .6s;
+    transition: transform .6s, border .6s, -webkit-transform .6s;
+}
+
+.listCheckbox::before {
+    position: absolute;
+    content: '✔';
+    height: 18px;
+    width: 18px;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8);
+    top: 60%;
+    left: 80%;
+    color: #000000;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: opacity .6s, -webkit-transform .6s;
+    transition: opacity .6s, -webkit-transform .6s;
+    transition: transform .6s, opacity .6s;
+    transition: transform .6s, opacity .6s, -webkit-transform .6s;
+}
+
+.listCheckbox:checked+label {
+    color: rgba(51, 51, 51, 0.4);
+}
+
+.listCheckbox:checked::after {
+    -webkit-transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
+    border: 1px solid rgba(136, 136, 136, 0);
+}
+
+.listCheckbox:checked::before {
+    opacity: .4;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 1.5vw;
+}
+
+.addButton {
+    background-color: #f2f2f2;
+    color: black;
+    border: 2px solid #10897F;
+}
+
+.addButton:hover {
+    background-color: #10897F;
+    color: white;
+}
+
+#newListName {
+    width: 300px;
+    margin: auto;
+    display: inline-block;
+}
+
+#logout {
+    border: 2px solid #0f635c;
+    background-color: #10897F;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+@media screen and (max-width: 700px) {
+  #logout {
+    border: 2px solid #0f635c;
+    background-color: #10897F;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  }
+}
+
+#logout:hover {
+    background-color: #0f635c;
+}
+
+.removeButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #f44336;
+    max-width: 150px;
+    max-height: 30px;
+    min-width: 150px;
+    min-height: 30px;
+}
+
+.removeTaskButton {
+    border-radius: 50%;
+    max-width: 30px;
+    max-height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.menuContainer {
+    text-align: center;
+    margin-left: center;
+    margin-right: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .list {
+        display: inline-block;
+        margin-left: 15%;
+        margin-right: 2.5%;
+        vertical-align: top;
+        background: #e6e6e6;
+        width:70%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .inputMobile {
+        font-size: 18px;
+    }
+}

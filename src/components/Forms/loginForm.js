@@ -47,13 +47,29 @@ export default class LoginForm extends React.Component {
 	return(   
 	<div className="formBox">
 	<form onSubmit={this.handleClick.bind(this)}>
+    <div className="panel-group">
+    <div className="panel panel-default">
+      <div className="panel-body">
+        <div className="row">
           <h2>Login</h2>
+        </div>
+        <div className="row">
           <input type="text" className="textInput" id="loginUsername" name="username" placeholder="Enter Username" required />
+        </div>
+        <div className="row">
           <input type="password" className="textInput" id="loginPassword" placeholder="Enter Password" required />
+        </div>
+        <div className="row">
           <input type="submit" id="loginButton" value="Login" />
-		   <p>If you don't have an account you can register here</p>
-        </form>
-      </div>	  
+        </div>
+        <div className="row">
+		      <p>If you don't have an account you can register here</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </form>
+  </div>	  
 	      
             );
     }
