@@ -11,7 +11,12 @@ class ListElement extends React.Component {
         this.handleRemoveTask = this.handleRemoveTask.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this);
     }
-	
+
+    /**
+     * Updates the checkbox of this ListElement, updates local storage
+     * and invokes render.
+     * @param {boolean} checked 
+     */
     handleCheckBox(checked) {
         this.state.checked = checked;
         var user = this.props.getUser();
@@ -29,6 +34,9 @@ class ListElement extends React.Component {
         this.props.renderInvokeCheck();
     }
 
+    /**
+     * Removes this task from the list.
+     */
     handleRemoveTask() {
         this.props.removeTaskHandler(this.state.id);
     }

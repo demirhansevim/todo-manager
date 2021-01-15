@@ -15,22 +15,38 @@ class ToDo extends React.Component {
     this.handleNewList = this.handleNewList.bind(this);
   }
 
+  /**
+   * Invokes render.
+   */
   renderInvoke() {
     this.setState({ switch: !this.state.switch });
   }
 
+  /**
+   * Returns the logged in user object instance.
+   */
   getUser() {
     return this.state.user;
   }
 
+  /**
+   * Updates the logged in user's information in the local storage.
+   */
   saveUser() {
     localStorage.setItem(this.state.user.username, JSON.stringify(this.state.user));
   }
 
+  /**
+   * Updates the current session information in the session storage.
+   * @param {Session} session 
+   */
   updateSession(session) {
     sessionStorage.setItem("session", JSON.stringify(session));
   }
 
+  /**
+   * Logs the user out of the system and updates the session information.
+   */
   logout() {
     var session = JSON.parse(sessionStorage.getItem("session"));
     session.user = null;
@@ -38,6 +54,9 @@ class ToDo extends React.Component {
     this.props.handler(0)
   }
 
+  /**
+   * Creates a new list and invokes render.
+   */
   handleNewList() {
     var id = -1;
     for (var i = 0; i <= this.state.user.lists.length; ++i) {
@@ -56,6 +75,10 @@ class ToDo extends React.Component {
     this.renderInvoke();
   }
 
+  /**
+   * Removes the list with the given id and invokes render.
+   * @param {string} id 
+   */
   handleRemoveList(id) {
     for (var i = 0; i < this.state.user.lists.length; ++i) {
       if (this.state.user.lists[i].id == id) {
@@ -66,6 +89,9 @@ class ToDo extends React.Component {
     this.renderInvoke();
   }
 
+  /**
+   * Initializes the ToDoManager and returns the logged in user object instance.
+   */
   init() {
     var username = JSON.parse(sessionStorage.getItem("session")).user;
     return JSON.parse(localStorage.getItem(username));

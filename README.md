@@ -4,8 +4,7 @@ TodoManager is a to-do list application that can save lists on local browser mem
 This is a project for CS391: Web Application Development course of Özyegin University.
 
 ## Work Allocation
-
-@biarmic (Eren Doğan) -> Convert back-end to components
+@biarmic (Eren Doğan) -> Convert back-end scripts to components
 
 @politesiv (Güven Can Yolal) -> Convert Homepage and Todo page to components
 

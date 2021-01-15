@@ -15,6 +15,9 @@ class List extends React.Component {
         this.handleRemoveList = this.handleRemoveList.bind(this);
     }
 
+    /**
+     * Creates a new ListElement under the list and invokes render.
+     */
     handleNewTask() {
         var user = this.props.getUser();
         var id = -1;
@@ -42,6 +45,10 @@ class List extends React.Component {
         this.props.renderInvokeHandler();
     }
 
+    /**
+     * Removes the ListElement with the given id from the list and invokes render.
+     * @param {string} id 
+     */
     handleRemoveTask(id) {
         var user = this.props.getUser();
         for (var i = 0; i < user.lists.length; ++i) {
@@ -58,6 +65,9 @@ class List extends React.Component {
         this.props.renderInvokeHandler();
     }
 
+    /**
+     * Removes the list entirely and invokes render.
+     */
     handleRemoveList() {
         this.props.removeListHandler(this.state.id);
     }

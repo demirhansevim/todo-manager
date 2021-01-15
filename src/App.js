@@ -22,13 +22,13 @@ class App extends React.Component {
       page: page
     });
   }
-  
+
   initSession() {
     if (sessionStorage.getItem("session") == null) {
-        var session = new Session();
-        sessionStorage.setItem("session", JSON.stringify(session));
+      var session = new Session();
+      sessionStorage.setItem("session", JSON.stringify(session));
     }
-}
+  }
 
   render() {
     this.initSession();
@@ -38,9 +38,8 @@ class App extends React.Component {
       return <Register handler={this.handler} />;
     else if (this.state.page == 2)
       return <Login handler={this.handler} />;
-    else {
+    else
       return <ToDo handler={this.handler} />;
-    }
   }
 }
 
