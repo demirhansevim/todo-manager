@@ -11,10 +11,22 @@ class ListElement extends React.Component {
         this.handleRemoveTask = this.handleRemoveTask.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this);
     }
-
+	
     handleCheckBox(checked) {
         this.state.checked = checked;
-        this.props.renderInvokeHandler();
+        var user = this.props.getUser();
+        for (var i = 0; i < user.lists.length; ++i) {
+            if (user.lists[i].id == this.props.parentId) {
+                for (var j = 0; j < user.lists[i].tasks.length; ++j) {
+                    if (user.lists[i].tasks[j].id == this.state.id) {
+                        user.lists[i].tasks[j].checked = checked;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        this.props.renderInvokeCheck();
     }
 
     handleRemoveTask() {

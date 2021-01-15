@@ -32,16 +32,22 @@ export default class LoginForm extends React.Component {
         var password = document.getElementById("loginPassword").value
         var loginBool = this.login(username, password)
         if (loginBool == null || loginBool == false) {
-          if (loginBool == null)
+          if (loginBool == null){
             alert("There is no user with that name.")
-          if (loginBool == false)
+			}
+          if (loginBool == false){
             alert("Wrong password.")
+			}		
         }
+		else 
+			this.props.handler(3)
+
 
       }    
-    handleClick() {
+    handleClick(event) {
+	  event.preventDefault();
       this.inputLogin();
-      this.props.handler(3)     
+         
   }   
 	render() {	   
 	return(   

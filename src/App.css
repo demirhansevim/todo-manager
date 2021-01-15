@@ -182,7 +182,7 @@ hr {
   display: inline-block;
   color: #eff6ec;
   text-decoration: none;
-  cursor: pointer;
+  cursor: hand;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;

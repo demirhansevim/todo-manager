@@ -27,6 +27,17 @@ class ToDo extends React.Component {
     localStorage.setItem(this.state.user.username, JSON.stringify(this.state.user));
   }
 
+  updateSession(session) {
+    sessionStorage.setItem("session", JSON.stringify(session));
+  }
+
+  logout() {
+    var session = JSON.parse(sessionStorage.getItem("session"));
+    session.user = null;
+    this.updateSession(session);
+    this.props.handler(0)
+  }
+
   handleNewList() {
     var id = -1;
     for (var i = 0; i <= this.state.user.lists.length; ++i) {
@@ -58,17 +69,17 @@ class ToDo extends React.Component {
   init() {
     var username = JSON.parse(sessionStorage.getItem("session")).user;
     return JSON.parse(localStorage.getItem(username));
-}
+  }
 
   render() {
     this.saveUser();
     var lists = [];
     for (var i = 0; i < this.state.user.lists.length; ++i) {
-      lists.push(<List id={this.state.user.lists[i].id} name={this.state.user.lists[i].name} getUser={this.getUser} removeListHandler={this.handleRemoveList} renderInvokeHandler={this.renderInvoke}/>);
+      lists.push(<List id={this.state.user.lists[i].id} name={this.state.user.lists[i].name} getUser={this.getUser} removeListHandler={this.handleRemoveList} renderInvokeHandler={this.renderInvoke} />);
     }
     return (
       <div>
-        <button className="button" id="logout">Logout</button>
+        <button className="button" id="logout" onClick={this.logout.bind(this)}>Logout</button>
         <div className="container">
           <div className="menuContainer">
             <input className="textInput" type="text" id="newListName" placeholder="New List" onChange={e => this.setState({ listName: e.target.value })}></input>

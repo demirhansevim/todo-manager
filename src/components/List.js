@@ -68,7 +68,7 @@ class List extends React.Component {
         for (var i = 0; i < user.lists.length; ++i) {
             if (user.lists[i].id == this.state.id) {
                 for (var j = 0; j < user.lists[i].tasks.length; ++j) {
-                    elements.push(<ListElement id={user.lists[i].tasks[j].id} name={user.lists[i].tasks[j].name} checked={user.lists[i].tasks[j].checked} removeTaskHandler={this.handleRemoveTask} renderInvokeHandler={this.renderInvoke} />);
+                    elements.push(<ListElement id={user.lists[i].tasks[j].id} name={user.lists[i].tasks[j].name} checked={user.lists[i].tasks[j].checked} parentId={this.state.id} getUser={this.props.getUser} removeTaskHandler={this.handleRemoveTask} renderInvokeCheck={this.props.renderInvokeHandler} />);
                 }
                 break;
             }

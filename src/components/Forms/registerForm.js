@@ -57,24 +57,36 @@ export default class RegisterForm extends React.Component {
       var registerBool = this.register(username, password, email, birthday, gender)
       if (password == checkpassword) {
         if (registerBool) {	
-          this.login(username, password)     
+          this.login(username, password) 
+		  this.props.handler(3) 	
+           return true;	  
         }
-        else
+        else {
           alert("That user already exists.")
+		  return false;		  
+		  }
        
       }
       else {
         alert("Passwords don't match")
+		return false;
         
       }
     }      
-    handleClick() {
+    handleClick(event) {
+	  event.preventDefault();
       this.inputRegister();
-      this.props.handler(3)     
+
+	  
+          
   }
 	passwordValidation() {
       if (this.state.password != this.state.passwordcheck) {
-        this.state.check = 'Your passwords do not match';
+		if(this.state.passwordcheck != "") {
+         this.state.check = 'Your passwords do not match';
+		}
+		else
+		 this.state.check = "";
       }
       else
         this.state.check = "";
@@ -86,9 +98,6 @@ export default class RegisterForm extends React.Component {
       <div className="formBox">
       	<form onSubmit={this.handleClick.bind(this)}>
           <h2>Register</h2>
-
-
-
           <div className="panel-group">
             <div className="panel panel-default">
               <div className="panel-body">
@@ -126,7 +135,7 @@ export default class RegisterForm extends React.Component {
                   
                 </div>
                 <div className="row">
-                 <input type="submit" value="Submit" id="registerButton"/>
+                 <input type="submit" value="Submit" id="registerButton" />
                 </div>
                 <div className="row">
                   <p>If you already have an account you can login here</p>
