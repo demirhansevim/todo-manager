@@ -42,6 +42,9 @@ class ListElement extends React.Component {
     }
 
     render() {
+        this.state.id = this.props.id;
+        this.state.name = this.props.name;
+        this.state.checked = this.props.checked;
         if (this.state.checked) {
             return (<li className="listElement" id={this.state.id}>
                 <input className="listCheckbox" type="checkbox" checked onChange={() => this.handleCheckBox(false)}></input>

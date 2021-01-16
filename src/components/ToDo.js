@@ -58,6 +58,10 @@ class ToDo extends React.Component {
    * Creates a new list and invokes render.
    */
   handleNewList() {
+    if (this.state.listName.length == 0) {
+      alert("List name cannot be empty.");
+      return;
+    }
     var id = -1;
     for (var i = 0; i <= this.state.user.lists.length; ++i) {
       var exists = false;
@@ -72,6 +76,7 @@ class ToDo extends React.Component {
     }
     id = 'l' + id;
     this.state.user.lists.push({ id: id, name: this.state.listName, tasks: [] });
+    this.state.listName = "";
     this.renderInvoke();
   }
 
@@ -108,7 +113,7 @@ class ToDo extends React.Component {
         <button className="button" id="logout" onClick={this.logout.bind(this)}>Logout</button>
         <div className="container">
           <div className="menuContainer">
-            <input className="textInput" type="text" id="newListName" placeholder="New List" onChange={e => this.setState({ listName: e.target.value })}></input>
+            <input className="textInput" type="text" id="newListName" placeholder="New List" value={this.state.listName} onChange={e => this.setState({ listName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewList(); } }}></input>
             <button className="button addButton" id="listButton" onClick={this.handleNewList}>Add New List</button>
           </div>
         </div>
