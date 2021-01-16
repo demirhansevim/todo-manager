@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterForm from './Forms/registerForm.js'
-import img from "../clipboard.png";
+import img from "../assets/clipboard.png";
 
 class Register extends React.Component {
   constructor(props) {

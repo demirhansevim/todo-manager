@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from './Forms/loginForm.js'
-import img from "../clipboard.png";
+import img from "../assets/clipboard.png";
 
 class Login extends React.Component {
   constructor(props) {

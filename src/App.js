@@ -7,6 +7,8 @@ import Login from './components/Login'
 import MainPage from './components/mainPage.js'
 import ToDo from './components/ToDo'
 import Session from './components/session.js';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,13 +35,37 @@ class App extends React.Component {
   render() {
     this.initSession();
     if (this.state.page == 0)
-      return <MainPage handler={this.handler} />;
+      return (
+        <div>
+          <Header handler={this.handler} />
+          <MainPage handler={this.handler} />
+          <Footer isFixed={true} />
+        </div>
+      );
     else if (this.state.page == 1)
-      return <Register handler={this.handler} />;
+      return (
+        <div>
+          <Header handler={this.handler} />
+          <Register handler={this.handler} />;
+          <Footer isFixed={false} />
+        </div>
+      );
     else if (this.state.page == 2)
-      return <Login handler={this.handler} />;
+      return (
+        <div>
+          <Header handler={this.handler} />
+          <Login handler={this.handler} />;
+          <Footer isFixed={false} />
+        </div>
+      );
     else
-      return <ToDo handler={this.handler} />;
+      return (
+        <div>
+          <Header handler={this.handler} />
+          <ToDo handler={this.handler} />;
+          <Footer isFixed={false} />
+        </div>
+      );
   }
 }
 

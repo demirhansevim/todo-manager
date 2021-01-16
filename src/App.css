@@ -65,6 +65,10 @@ body {
   }
 }
 
+.logoClick {
+  cursor: pointer;
+}
+
 hr {
   border: 0;
   height: 2px;
@@ -96,6 +100,10 @@ hr {
   background-color: #0d0e0f;
   color: white;
   width: 100%;
+}
+
+.footer-fixed {
+  position: fixed;
 }
 
 @media screen and (max-width: 700px) {
@@ -361,6 +369,12 @@ hr {
   font-weight: 300;
   padding: 10px;
   display: block;
+}
+
+@media (max-width: 800px) {
+  .textInput {
+    width: 100%;
+  }
 }
 
 .genderText {
