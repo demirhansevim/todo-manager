@@ -108,14 +108,14 @@ class RegisterForm extends React.Component {
    */
   passwordValidation() {
     if (this.state.password != this.state.passwordcheck) {
-      if (this.state.passwordcheck != "") {
-        this.state.check = "Your passwords do not match";
-      }
-      else
-        this.state.check = "";
+		if(this.state.passwordcheck != "")
+         this.setState({check:"Your passwords do not match"});
+		 else
+		 this.setState({check:""});
     }
+		
     else
-      this.state.check = "";
+      this.setState({check:""});
   }
 
   /**
