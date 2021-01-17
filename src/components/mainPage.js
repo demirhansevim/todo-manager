@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Row, Col } from "reactstrap";
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -9,12 +10,12 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="row indexButtonContainer justify-content-center">
-                    <div className="col-md-6 text-center">
+                <Row className="indexButtonContainer justify-content-center">
+                    <Col md="6" className="text-center">
                         <a type="button" className="indexButton" value="Login" onClick={() => this.props.history.push("login")}><span>Login</span></a>&nbsp;
                         <a type="button" className="indexButton" value="Register" onClick={() => this.props.history.push("register")}><span>Register</span></a>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         );
     }

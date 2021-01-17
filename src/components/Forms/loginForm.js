@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
+import { Container, Form, Row, Input } from "reactstrap"
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -67,31 +68,27 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="formBox">
-        <form onSubmit={this.handleClick.bind(this)}>
-          <div className="panel-group">
-            <div className="panel panel-default">
-              <div className="panel-body">
-                <div className="row">
-                  <h2>Login</h2>
-                </div>
-                <div className="row">
-                  <input type="text" className="textInput" id="loginUsername" name="username" placeholder="Enter Username" required />
-                </div>
-                <div className="row">
-                  <input type="password" className="textInput" id="loginPassword" placeholder="Enter Password" required />
-                </div>
-                <div className="row">
-                  <input type="submit" id="loginButton" value="Login" />
-                </div>
-                <div className="row">
-                  <p>If you don't have an account you can register <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/register"); }}>here</a></p>
-                </div>
-              </div>
-            </div>
+      <Container className="formBox">
+        <Form onSubmit={this.handleClick.bind(this)}>
+          <div>
+            <Row>
+              <h2>Login</h2>
+            </Row>
+            <Row>
+              <Input type="text" className="textInput" id="loginUsername" name="username" placeholder="Enter Username" required />
+            </Row>
+            <Row>
+              <Input type="password" className="textInput" id="loginPassword" placeholder="Enter Password" required />
+            </Row>
+            <Row>
+              <Input type="submit" id="loginButton" value="Login" />
+            </Row>
+            <Row>
+              <p>If you don't have an account you can register <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/register"); }}>here</a></p>
+            </Row>
           </div>
-        </form>
-      </div>
+        </Form>
+      </Container>
     );
   }
 }

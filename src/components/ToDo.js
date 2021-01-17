@@ -1,6 +1,7 @@
 import React from "react";
 import List from "./List.js";
 import { withRouter } from "react-router-dom";
+import { Button, Container, Input } from "reactstrap";
 
 class ToDo extends React.Component {
   constructor(props) {
@@ -111,13 +112,13 @@ class ToDo extends React.Component {
     }
     return (
       <div>
-        <button className="button" id="logout" onClick={this.logout.bind(this)}>Logout</button>
-        <div className="container">
-          <div className="menuContainer">
-            <input className="textInput" type="text" id="newListName" placeholder="New List" value={this.state.listName} onChange={e => this.setState({ listName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewList(); } }}></input>
-            <button className="button addButton" id="listButton" onClick={this.handleNewList}>Add New List</button>
-          </div>
-        </div>
+        <Button className="button" id="logout" onClick={this.logout.bind(this)}>Logout</Button>
+        <Container>
+          <Container className="text-center">
+            <Input className="textInput" type="text" id="newListName" placeholder="New List" value={this.state.listName} onChange={e => this.setState({ listName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewList(); } }} />
+            <Button className="button addButton" id="listButton" onClick={this.handleNewList}>Add New List</Button>
+          </Container>
+        </Container>
         <div id="lists"> {lists} </div>
       </div>
     );

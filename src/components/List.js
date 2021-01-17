@@ -1,5 +1,6 @@
 import React from "react";
 import ListElement from "./ListElement";
+import { Button, Input } from "reactstrap";
 
 class List extends React.Component {
     constructor(props) {
@@ -92,12 +93,12 @@ class List extends React.Component {
         return (
             <div className="list" id={this.state.id}>
                 <div className="listInside">
-                    <button className="button removeButton" onClick={this.handleRemoveList}>Remove List</button>
+                    <Button className="button removeButton" onClick={this.handleRemoveList}>Remove List</Button>
                     <h1 className="listName">{this.state.name}</h1>
-                    <input className="textInput inputMobile" type="text" placeholder="New Task" value={this.state.taskName} onChange={e => this.setState({ taskName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewTask(); } }}></input>
-                    <button className="button addButton" onClick={this.handleNewTask}>Add New Task</button>
+                    <Input className="textInput inputMobile" type="text" placeholder="New Task" value={this.state.taskName} onChange={e => this.setState({ taskName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewTask(); } }} />
+                    <Button className="button addButton" onClick={this.handleNewTask}>Add New Task</Button>
                 </div><ul> {elements} </ul>
-            </div>
+            </div >
         );
     }
 }

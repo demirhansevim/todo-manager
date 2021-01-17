@@ -3,6 +3,11 @@ TodoManager is a to-do list application that can save lists on local browser mem
 
 This is a project for CS391: Web Application Development course of Özyegin University.
 
+## Libraries Used
+* React Router
+* Reactstrap
+* React DOM
+
 ## Work Allocation
 @biarmic (Eren Doğan) -> Convert back-end scripts to components
 
@@ -23,7 +28,8 @@ This is a project for CS391: Web Application Development course of Özyegin Univ
 
 ## Instructions
 * Download the repository
-* Run the application using npm
-* Click on register button to go to register.html
+* Copy files to where node modules are located
+* Run the application using npm start
+* Click on register button to go to Register page
 * Register to TodoManager
 * Now you can add lists and tasks

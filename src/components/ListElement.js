@@ -1,4 +1,5 @@
 import React from "react";
+import { Label, Input, Button } from "reactstrap";
 
 class ListElement extends React.Component {
     constructor(props) {
@@ -47,14 +48,14 @@ class ListElement extends React.Component {
         this.state.checked = this.props.checked;
         if (this.state.checked) {
             return (<li className="listElement" id={this.state.id}>
-                <input className="listCheckbox" type="checkbox" checked onChange={() => this.handleCheckBox(false)}></input>
-                <label className="listLabel">{this.state.name}</label>
-                <button className="button removeButton removeTaskButton" onClick={this.handleRemoveTask}>X</button></li>);
+                <Input className="listCheckbox" type="checkbox" checked onChange={() => this.handleCheckBox(false)}></Input>
+                <Label className="listLabel">{this.state.name}</Label>
+                <Button className="button removeButton removeTaskButton" onClick={this.handleRemoveTask}>X</Button></li>);
         } else {
             return (<li className="listElement" id={this.state.id}>
-                <input className="listCheckbox" type="checkbox" onChange={() => this.handleCheckBox(true)}></input>
-                <label className="listLabel">{this.state.name}</label>
-                <button className="button removeButton removeTaskButton" onClick={this.handleRemoveTask}>X</button></li>);
+                <Input className="listCheckbox" type="checkbox" onChange={() => this.handleCheckBox(true)}></Input>
+                <Label className="listLabel">{this.state.name}</Label>
+                <Button className="button removeButton removeTaskButton" onClick={this.handleRemoveTask}>X</Button></li>);
         }
     }
 }

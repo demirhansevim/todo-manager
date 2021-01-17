@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import User from "../user.js";
 import { withRouter } from "react-router-dom";
+import { Container, Form, Row, Col, Label, Input } from "reactstrap"
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -128,53 +129,49 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <div className="formBox">
-        <form onSubmit={this.handleClick.bind(this)}>
+      <Container className="formBox">
+        <Form onSubmit={this.handleClick.bind(this)}>
           <h2>Register</h2>
-          <div className="panel-group">
-            <div className="panel panel-default">
-              <div className="panel-body">
-                <div className="row">
-                  <input type="text" id="registerUsername" placeholder="Enter Username" required />
-                </div>
-                <div className="row">
-                  <input type="email" id="registerMail" placeholder="Enter E-mail" required />
-                </div>
-                <div className="row">
-                  <input value={this.state.password} onChange={e => this.setState({ password: e.target.value })} type="password" id="registerPassword" placeholder="Enter Password" required />
-                </div>
-                <div className="row">
-                  <input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={() => this.passwordValidation()} required />
-                </div>
-                <div className="row">
-                  <span class="span-text-color">{this.state.check}</span>
-                </div>
-                <div className="row">
-                  <input type="date" id="registerBirthday" placeholder="Enter Birthday" required />
-                </div><br />
-                <div className="row">
-                  <div className="col-md-3">
-                    <label className="genderText" htmlFor="genderMale">Male <input type="radio" id="genderMale" name="registerGender" value="Male" required /></label><br />
-                  </div>
-                  <div className="col-md-3">
-                    <label className="genderText" htmlFor="genderFemale">Female <input type="radio" id="genderFemale" name="registerGender" value="Female" /></label><br />
-                  </div>
-                </div>
-                <div className="row">
-                </div>
-                <div className="row">
-                </div>
-                <div className="row">
-                  <input type="submit" value="Submit" id="registerButton" />
-                </div>
-                <div className="row">
-                  <p>If you already have an account you can login <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/login"); }}>here</a></p>
-                </div>
-              </div>
-            </div>
+          <div>
+            <Row>
+              <Input type="text" id="registerUsername" placeholder="Enter Username" required />
+            </Row>
+            <Row>
+              <Input type="email" id="registerMail" placeholder="Enter E-mail" required />
+            </Row>
+            <Row>
+              <Input value={this.state.password} onChange={e => this.setState({ password: e.target.value })} type="password" id="registerPassword" placeholder="Enter Password" required />
+            </Row>
+            <Row>
+              <Input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={() => this.passwordValidation()} required />
+            </Row>
+            <Row>
+              <span class="span-text-color">{this.state.check}</span>
+            </Row>
+            <Row>
+              <Input type="date" id="registerBirthday" placeholder="Enter Birthday" required />
+            </Row><br />
+            <Row>
+              <Col md="3">
+                <Label htmlFor="genderMale">Male <Input type="radio" id="genderMale" name="registerGender" value="Male" required /></Label><br />
+              </Col>
+              <Col md="3">
+                <Label htmlFor="genderFemale">Female <Input type="radio" id="genderFemale" name="registerGender" value="Female" /></Label><br />
+              </Col>
+            </Row>
+            <Row>
+            </Row>
+            <Row>
+            </Row>
+            <Row>
+              <Input type="submit" value="Submit" id="registerButton" />
+            </Row>
+            <Row>
+              <p>If you already have an account you can login <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/login"); }}>here</a></p>
+            </Row>
           </div>
-        </form>
-      </div>
+        </Form>
+      </Container>
     );
   }
 }
