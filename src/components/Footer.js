@@ -9,7 +9,6 @@ class Footer extends React.Component {
    }
 
    render() {
-      console.log(window.location.pathname);
       this.state.isFixed = this.props.isFixed;
       if (this.state.isFixed) {
          return (
