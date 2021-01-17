@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./bootstrap.css";
 import "./App.css";
 import "./todoStyle.css";
