@@ -1,5 +1,6 @@
-import React from 'react';
-import List from './List.js';
+import React from "react";
+import List from "./List.js";
+import { withRouter } from "react-router-dom";
 
 class ToDo extends React.Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class ToDo extends React.Component {
     var session = JSON.parse(sessionStorage.getItem("session"));
     session.user = null;
     this.updateSession(session);
-    this.props.handler(0)
+    this.props.history.push("/");
   }
 
   /**
@@ -66,7 +67,7 @@ class ToDo extends React.Component {
     for (var i = 0; i <= this.state.user.lists.length; ++i) {
       var exists = false;
       for (var j = 0; !exists && j < this.state.user.lists.length; ++j) {
-        if (this.state.user.lists[j].id.split('l')[1] == i)
+        if (this.state.user.lists[j].id.split("l")[1] == i)
           exists = true;
       }
       if (!exists) {
@@ -74,7 +75,7 @@ class ToDo extends React.Component {
         break;
       }
     }
-    id = 'l' + id;
+    id = "l" + id;
     this.state.user.lists.push({ id: id, name: this.state.listName, tasks: [] });
     this.state.listName = "";
     this.renderInvoke();
@@ -117,9 +118,10 @@ class ToDo extends React.Component {
             <button className="button addButton" id="listButton" onClick={this.handleNewList}>Add New List</button>
           </div>
         </div>
-        <div id="lists"> {lists} </div></div>
+        <div id="lists"> {lists} </div>
+      </div>
     );
   }
 }
 
-export default ToDo;
+export default withRouter(ToDo);

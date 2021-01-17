@@ -1,30 +1,24 @@
-import React from 'react';
-import './bootstrap.css';
-import './App.css';
-import './todoStyle.css';
-import Register from './components/Register'
-import Login from './components/Login'
-import MainPage from './components/mainPage.js'
-import ToDo from './components/ToDo'
-import Session from './components/session.js';
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
+import React from "react";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import "./bootstrap.css";
+import "./App.css";
+import "./todoStyle.css";
+import Register from "./components/Register"
+import Login from "./components/Login"
+import MainPage from "./components/mainPage.js"
+import ToDo from "./components/ToDo"
+import Session from "./components/session.js";
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      page: 0
-    };
-    this.handler = this.handler.bind(this);
   }
 
-  handler(page) {
-    this.setState({
-      page: page
-    });
-  }
-
+  /**
+   * Initializes the session information if does not exist in the session storage.
+   */
   initSession() {
     if (sessionStorage.getItem("session") == null) {
       var session = new Session();
@@ -34,38 +28,21 @@ class App extends React.Component {
 
   render() {
     this.initSession();
-    if (this.state.page == 0)
-      return (
-        <div>
-          <Header handler={this.handler} />
-          <MainPage handler={this.handler} />
-          <Footer isFixed={true} />
-        </div>
-      );
-    else if (this.state.page == 1)
-      return (
-        <div>
-          <Header handler={this.handler} />
-          <Register handler={this.handler} />;
-          <Footer isFixed={false} />
-        </div>
-      );
-    else if (this.state.page == 2)
-      return (
-        <div>
-          <Header handler={this.handler} />
-          <Login handler={this.handler} />;
-          <Footer isFixed={false} />
-        </div>
-      );
-    else
-      return (
-        <div>
-          <Header handler={this.handler} />
-          <ToDo handler={this.handler} />;
-          <Footer isFixed={false} />
-        </div>
-      );
+    return (
+      <div>
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/todo" component={ToDo} />
+            <Route path="*" component={MainPage} />
+          </Switch>
+        </BrowserRouter>
+        <Footer isFixed={true} />
+      </div>
+    );
   }
 }
 

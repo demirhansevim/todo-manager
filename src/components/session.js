@@ -6,4 +6,5 @@ class Session {
         this.user = null;
     }
 }
+
 export default Session;

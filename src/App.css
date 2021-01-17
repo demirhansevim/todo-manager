@@ -113,7 +113,7 @@ hr {
 }
 
 .footerRight {
-  margin-top: 4vh;
+  margin-top: 1vh;
   margin-right: 4vw;
   width: 6vw;
   text-align: center;
@@ -122,7 +122,7 @@ hr {
 
 @media screen and (max-width: 700px) {
   .footerRight {
-    margin-top: 15vw;
+    margin-top: 6vw;
     margin-right: 10vw;
     width: 10%;
     text-align: left;

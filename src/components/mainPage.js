@@ -1,16 +1,9 @@
-import React from 'react';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    /**
-     * Goes to the given page.
-     * @param {number} item 
-     */
-    handleClick(item) {
-        this.props.handler(item)
     }
 
     render() {
@@ -18,8 +11,8 @@ class MainPage extends React.Component {
             <div className="container">
                 <div className="row indexButtonContainer justify-content-center">
                     <div className="col-md-6 text-center">
-                        <a type="button" className="indexButton" value="Login" onClick={this.handleClick.bind(this, 2)}><span>Login</span></a>&nbsp;
-                <a type="button" className="indexButton" value="Register" onClick={this.handleClick.bind(this, 1)}><span>Register</span></a>
+                        <a type="button" className="indexButton" value="Login" onClick={() => this.props.history.push("login")}><span>Login</span></a>&nbsp;
+                        <a type="button" className="indexButton" value="Register" onClick={() => this.props.history.push("register")}><span>Register</span></a>
                     </div>
                 </div>
             </div>
@@ -27,4 +20,4 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+export default withRouter(MainPage);

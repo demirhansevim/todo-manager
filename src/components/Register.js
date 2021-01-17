@@ -1,5 +1,5 @@
-import React from 'react';
-import RegisterForm from './Forms/registerForm.js'
+import React from "react";
+import RegisterForm from "./Forms/registerForm.js"
 import img from "../assets/clipboard.png";
 
 class Register extends React.Component {
@@ -14,12 +14,12 @@ class Register extends React.Component {
           <div className="formImage">
             <img src={img} />
           </div>
-          <RegisterForm handler={this.props.handler} />
+          <RegisterForm />
         </div>
       </div>
     );
   }
 }
 
-export default Register
+export default Register;
 

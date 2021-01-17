@@ -1,17 +1,19 @@
-import React from 'react';
-import User from '../user.js';
+import React from "react";
+import ReactDOM from "react-dom";
+import User from "../user.js";
+import { withRouter } from "react-router-dom";
 
-export default class RegisterForm extends React.Component {
+class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      email: '',
-      password: '',
-      passwordcheck: '',
-      birthday: '',
-      gender: '',
-      check: ''
+      username: "",
+      email: "",
+      password: "",
+      passwordcheck: "",
+      birthday: "",
+      gender: "",
+      check: ""
     };
     this.inputRegister = this.inputRegister.bind(this);
     this.passwordValidation = this.passwordValidation.bind(this);
@@ -74,28 +76,28 @@ export default class RegisterForm extends React.Component {
    * Alerts the user if not registered. Otherwise updates the page.
    */
   inputRegister() {
-    var username = document.getElementById("registerUsername").value
-    var password = document.getElementById("registerPassword").value
-    var checkpassword = document.getElementById("checkPassword").value
-    var email = document.getElementById("registerMail").value
-    var birthday = document.getElementById("registerBirthday").value
-    var gender = document.getElementsByName('registerGender')
+    var username = document.getElementById("registerUsername").value;
+    var password = document.getElementById("registerPassword").value;
+    var checkpassword = document.getElementById("checkPassword").value;
+    var email = document.getElementById("registerMail").value;
+    var birthday = document.getElementById("registerBirthday").value;
+    var gender = document.getElementsByName('registerGender');
     for (var i = 0; i < gender.length; i++) {
       if (gender[i].checked)
-        gender = gender[i].value
+        gender = gender[i].value;
     }
     var registerBool = this.register(username, password, email, birthday, gender)
     if (password == checkpassword) {
       if (registerBool) {
-        this.login(username, password)
-        this.props.handler(3);
+        this.login(username, password);
+        this.props.history.push("/todo");
         return true;
       } else {
-        alert("That user already exists.")
+        alert("That user already exists.");
         return false;
       }
     } else {
-      alert("Passwords don't match")
+      alert("Passwords don't match");
       return false;
     }
   }
@@ -106,7 +108,7 @@ export default class RegisterForm extends React.Component {
   passwordValidation() {
     if (this.state.password != this.state.passwordcheck) {
       if (this.state.passwordcheck != "") {
-        this.state.check = 'Your passwords do not match';
+        this.state.check = "Your passwords do not match";
       }
       else
         this.state.check = "";
@@ -115,6 +117,10 @@ export default class RegisterForm extends React.Component {
       this.state.check = "";
   }
 
+  /**
+   * Handles the click event of submit button.
+   * @param {MouseEvent} event 
+   */
   handleClick(event) {
     event.preventDefault();
     this.inputRegister();
@@ -138,7 +144,7 @@ export default class RegisterForm extends React.Component {
                   <input value={this.state.password} onChange={e => this.setState({ password: e.target.value })} type="password" id="registerPassword" placeholder="Enter Password" required />
                 </div>
                 <div className="row">
-                  <input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={this.passwordValidation()} required />
+                  <input value={this.state.passwordcheck} onChange={e => this.setState({ passwordcheck: e.target.value })} type="password" id="checkPassword" placeholder="Enter Password Again" onKeyUp={() => this.passwordValidation()} required />
                 </div>
                 <div className="row">
                   <span class="span-text-color">{this.state.check}</span>
@@ -162,7 +168,7 @@ export default class RegisterForm extends React.Component {
                   <input type="submit" value="Submit" id="registerButton" />
                 </div>
                 <div className="row">
-                  <p>If you already have an account you can login <a href="#" onClick={() => this.props.handler(2)}>here</a></p>
+                  <p>If you already have an account you can login <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/login"); }}>here</a></p>
                 </div>
               </div>
             </div>
@@ -172,3 +178,5 @@ export default class RegisterForm extends React.Component {
     );
   }
 }
+
+export default withRouter(RegisterForm);

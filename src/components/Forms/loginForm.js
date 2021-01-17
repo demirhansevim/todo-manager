@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { withRouter } from "react-router-dom";
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     };
     this.inputLogin = this.inputLogin.bind(this);
   }
@@ -42,18 +44,22 @@ export default class LoginForm extends React.Component {
    * Alerts the user if not logged in. Otherwise updates the page.
    */
   inputLogin() {
-    var username = document.getElementById("loginUsername").value
-    var password = document.getElementById("loginPassword").value
-    var loginBool = this.login(username, password)
+    var username = document.getElementById("loginUsername").value;
+    var password = document.getElementById("loginPassword").value;
+    var loginBool = this.login(username, password);
     if (loginBool == null || loginBool == false) {
       if (loginBool == null)
-        alert("There is no user with that name.")
+        alert("There is no user with that name.");
       if (loginBool == false)
-        alert("Wrong password.")
+        alert("Wrong password.");
     } else
-      this.props.handler(3)
+      this.props.history.push("/todo");
   }
 
+  /**
+   * Handles the click event of submit button.
+   * @param {MouseEvent} event 
+   */
   handleClick(event) {
     event.preventDefault();
     this.inputLogin();
@@ -79,7 +85,7 @@ export default class LoginForm extends React.Component {
                   <input type="submit" id="loginButton" value="Login" />
                 </div>
                 <div className="row">
-                  <p>If you don't have an account you can register <a href="#" onClick={() => this.props.handler(1)}>here</a></p>
+                  <p>If you don't have an account you can register <a href="" onClick={e => { e.preventDefault(); this.props.history.push("/register"); }}>here</a></p>
                 </div>
               </div>
             </div>
@@ -89,3 +95,5 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
+export default withRouter(LoginForm);

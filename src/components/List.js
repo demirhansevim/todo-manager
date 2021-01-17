@@ -1,5 +1,5 @@
-import React from 'react';
-import ListElement from './ListElement';
+import React from "react";
+import ListElement from "./ListElement";
 
 class List extends React.Component {
     constructor(props) {
@@ -29,8 +29,8 @@ class List extends React.Component {
                 for (var i = 0; i <= user.lists[k].tasks.length; ++i) {
                     var exists = false;
                     for (var j = 0; !exists && j < user.lists[k].tasks.length; ++j)
-                    if (user.lists[k].tasks[j].id.split('e')[1] == i)
-                    exists = true;
+                        if (user.lists[k].tasks[j].id.split("e")[1] == i)
+                            exists = true;
                     if (!exists) {
                         id = i;
                         break;
@@ -39,7 +39,7 @@ class List extends React.Component {
                 break;
             }
         }
-        id = 'e' + id;
+        id = "e" + id;
         for (var i = 0; i < user.lists.length; ++i) {
             if (user.lists[i].id == this.state.id) {
                 user.lists[i].tasks.push({ id: id, name: this.state.taskName, checked: false });
@@ -96,7 +96,8 @@ class List extends React.Component {
                     <h1 className="listName">{this.state.name}</h1>
                     <input className="textInput inputMobile" type="text" placeholder="New Task" value={this.state.taskName} onChange={e => this.setState({ taskName: e.target.value })} onKeyDown={e => { if (e.keyCode == 13) { this.handleNewTask(); } }}></input>
                     <button className="button addButton" onClick={this.handleNewTask}>Add New Task</button>
-                </div><ul> {elements} </ul></div>
+                </div><ul> {elements} </ul>
+            </div>
         );
     }
 }
